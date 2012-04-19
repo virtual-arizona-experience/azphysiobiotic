@@ -1,0 +1,16 @@
+#bio-popup
+	#chooser
+		#bio.chosen-chooser Biotic Community
+		#phys Physiographic Province
+	#biotic-info
+		h3= bioticname
+		#biotic-media.media-container
+			img(src= bioticmedia)
+		#biotic-description.description!= bioticdescription
+		
+	#physio-info.hidden-content
+		h3= provincename
+		a#province-more-info(href= provinceinfolink)= provinceinfodescription		
+		#province-media.media-container
+			img(src= provincephotourl)
+		#province-description.description!= provincedescription

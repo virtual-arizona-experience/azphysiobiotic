@@ -52,7 +52,7 @@ function init(){
 		}
 	});
 	
-	map.addControl(legendPanel);		
+	
 	
 	map.clickResponse = new L.GeoJSON.WFS.ClickResponder({
 		map: map,
@@ -68,7 +68,8 @@ function init(){
 	setTimeout(function() {
 		map.addLayer(bioticLayer);
 		setTimeout(function() {
-			map.addLayer(refLayer);			
+			map.addLayer(refLayer);
+			map.addControl(legendPanel);		
 		}, 250);
 	}, 250);
 }

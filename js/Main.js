@@ -6,8 +6,15 @@ function init(){
 		bioticLayer = new L.TileLayer(bioticUrl, {maxZoom: 12, opacity: 0.6}); 
 	
 	/* ESRI tiled service example: */
-	var imageryLayer = new L.TileLayer.ESRI("http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer");
-	var refLayer = new L.TileLayer.ESRI("http://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer");
+	//var imageryLayer = new L.TileLayer.ESRI("http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer");
+	//var refLayer = new L.TileLayer.ESRI("http://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer");
+	
+	// Cloudmade / OpenStreetMap tiled layer
+	var cmUrl = 'http://{s}.tile.cloudmade.com/f7d28795be6846849741b30c3e4db9a9/997/256/{z}/{x}/{y}.png',
+		cmAttribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+		cmOptions = { maxZoom: 18, attribution: cmAttribution };
+	
+	var cloudmade = new L.TileLayer(cmUrl, cmOptions);//, {styleId: 999});
 	
 	/* WFS GeoJSON layer example: */
 	var wfsLayer = new L.GeoJSON.WFS("http://opengis.azexperience.org/geoserver/wfs", "vae:azpointsofinterest", {
@@ -64,11 +71,10 @@ function init(){
 	});
 	
 	var center = new L.LatLng(34.1618, -111.53332);
-	map.setView(center, 7).addLayer(imageryLayer).addLayer(wfsLayer);
+	map.setView(center, 7).addLayer(cloudmade).addLayer(wfsLayer);
 	setTimeout(function() {
 		map.addLayer(bioticLayer);
 		setTimeout(function() {
-			map.addLayer(refLayer);
 			map.addControl(legendPanel);		
 		}, 250);
 	}, 250);

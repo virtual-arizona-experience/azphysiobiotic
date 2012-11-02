@@ -2,7 +2,7 @@ function init(){
 	var map = new L.Map("map");
 	
 	/* Tilestream Layer example: */
-	var bioticUrl = "http://opengis.azexperience.org/tiles/v2/azphysiobiotic/{z}/{x}/{y}.png",
+	var bioticUrl = "/tiles/v2/azphysiobiotic/{z}/{x}/{y}.png",
 		bioticLayer = new L.TileLayer(bioticUrl, {maxZoom: 12, opacity: 0.6}); 
 	
 	/* ESRI tiled service example: */
@@ -17,7 +17,7 @@ function init(){
 	var cloudmade = new L.TileLayer(cmUrl, cmOptions);//, {styleId: 999});
 	
 	/* WFS GeoJSON layer example: */
-	var wfsLayer = new L.GeoJSON.WFS("http://opengis.azexperience.org/geoserver/wfs", "vae:azpointsofinterest", {
+	var wfsLayer = new L.GeoJSON.WFS("/geoserver/wfs", "vae:azpointsofinterest", {
 		pointToLayer: function(latlng) { 
 			return new L.Marker(latlng, {
 				icon: new L.Icon({
@@ -63,7 +63,7 @@ function init(){
 	
 	map.clickResponse = new L.GeoJSON.WFS.ClickResponder({
 		map: map,
-		url: "http://opengis.azexperience.org/geoserver/wfs",
+		url: "/geoserver/wfs",
 		featureType: "vae:azphysiobioticpolys",
 		version: "1.0.0",
 		geomFieldName: "wkb_geometry",

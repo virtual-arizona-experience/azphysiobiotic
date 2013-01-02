@@ -1,4 +1,4 @@
-@azblue: #003366;
+@azblue: #000;
 @legend-panel-width: 400px;
 .font(@size: 11px) {
   font: @size "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -7,11 +7,13 @@
 .custom-control-hover-label {
   .font();
   
-  background-color: white;
-  color: @azblue;
+  background-color: none;
+  font: 16px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: white;
+  text-shadow: 1px 1px black;
   font-weight: bold;
   padding: 3px 5px;
-  border: 5px solid lighten(@azblue, 5%);
+  border: 0px solid lighten(@azblue, 5%);
   border-radius: 5px;
 }
 
@@ -45,16 +47,14 @@
 
 .chosen-chooser {
   cursor: pointer !important;
-  border: 2px solid @azblue !important;
-  background-color: #DDD !important;
-  color: @azblue !important;
+  border: 2px solid #FFF !important;
+  color: #FFF !important;
 }
 
 .chooser-button() {
   width: @chooser-button-width;
-  border: 2px solid #DDD;
-  background-color: @azblue;
-  color: #DDD; 
+  border: 2px solid #AAA;
+  color: #AAA; 
   padding: 10px 0px;
   font-weight: bold;
   border-radius: 4px;

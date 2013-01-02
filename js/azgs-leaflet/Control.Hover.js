@@ -1,7 +1,7 @@
 L.Control.Hover = L.Control.extend({
 	options: {
 		position: "hover",
-		offset: new L.Point(30,-16)
+		offset: new L.Point(16,-16)
 	},
 	
 	initialize: function(point, content, options) {

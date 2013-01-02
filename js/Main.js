@@ -1,9 +1,12 @@
 function init(){
 	var map = new L.Map("map");
 	
+	var landshadeUrl = "/tiles/v2/physiobioticbase/{z}/{x}/{y}.png",
+	landshade = new L.TileLayer(landshadeUrl, {maxZoom: 12}); 
+	
 	/* Tilestream Layer example: */
 	var bioticUrl = "/tiles/v2/azphysiobiotic/{z}/{x}/{y}.png",
-		bioticLayer = new L.TileLayer(bioticUrl, {maxZoom: 12, opacity: 0.6}); 
+		bioticLayer = new L.TileLayer(bioticUrl, {maxZoom: 12, opacity: 0}); 
 	
 	/* ESRI tiled service example: */
 	//var imageryLayer = new L.TileLayer.ESRI("http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer");
@@ -21,8 +24,8 @@ function init(){
 		pointToLayer: function(latlng) { 
 			return new L.Marker(latlng, {
 				icon: new L.Icon({
-					iconUrl: "style/images/fancy-binoculars.png",
-					iconSize: new L.Point(40, 40)
+					iconUrl: "style/images/info.png",
+					iconSize: new L.Point(25, 25)
 				})				
 			}); 
 		},
@@ -71,7 +74,7 @@ function init(){
 	});
 	
 	var center = new L.LatLng(34.1618, -111.53332);
-	map.setView(center, 7).addLayer(cloudmade).addLayer(wfsLayer);
+	map.setView(center, 7).addLayer(landshade).addLayer(wfsLayer);
 	setTimeout(function() {
 		map.addLayer(bioticLayer);
 		setTimeout(function() {
@@ -79,3 +82,4 @@ function init(){
 		}, 250);
 	}, 250);
 }
+

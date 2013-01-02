@@ -1,0 +1,14 @@
+#acert-legend {
+	height: 25px;
+	width: 600px;
+	position: relative;
+	top: -36px;
+	left: 2px;
+	z-index: 1000;
+    font-size: 70%;
+    color: white;	
+    clear: both;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    border-style: solid;
+	border-width: 0px;
+}
